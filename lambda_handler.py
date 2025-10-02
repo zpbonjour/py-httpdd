@@ -110,7 +110,7 @@ def lambda_handler(event, context) -> dict | bool:
         - A boolean `True` for successful warmup events or standard invocations
           where 'http_response_enabled' is False.
     """
-    if event.get('subType') == 'LAMBDA_WARMUP' and event.get('type') == 'WARMUP':
+    if event.get('Action') == 'LAMBDA_WARMUP':
         logger.info("Warmup event detected, no action taken.")
         return True
 

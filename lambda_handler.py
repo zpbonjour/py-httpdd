@@ -144,8 +144,8 @@ def lambda_handler(event, context) -> dict | bool:
         "ddsource": ddsource,
         "service": service,
         "ddtags": ddtags,
-        "lambda_arn_or_name": context.get('invoked_function_arn') if context else context.function_name,
-        "aws_request_id": context.get('aws_request_id') if context else "Unknonwn"
+        "lambda_arn_or_name": context.invoked_function_arn if context else context.function_name,
+        "aws_request_id": context.aws_request_id if context else "Unknonwn"
     }
 
     # Fail if required parameters are missing or invalid

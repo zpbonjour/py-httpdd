@@ -115,7 +115,7 @@ def lambda_handler(event, context) -> dict | bool:
         return True
 
     # Extract parameters from the event
-    url = event.get('url', 'Not Set!') # Required, protocol must be http or https
+    url = event.get('url') # Required, protocol must be http or https
     method = event.get('method', 'GET').upper() # Default to GET if not provided
     payload = event.get('payload', None) # Can be None, string, or stringified JSON, default to None
     headers = event.get('headers', {}) # if payload is JSON, Content-Type will automatically be set to 'application/json', default to empty dict

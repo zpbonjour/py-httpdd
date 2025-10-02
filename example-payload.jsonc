@@ -14,5 +14,6 @@
     "log_return_body": false, // Boolean - If true, the response body will be base64-encoded and included in the http response. Default is false.
     "http_timeout": 10, // str|int - Optional, timeout in seconds for the HTTP request, default is 10 seconds.
     "allow_redirects": true, // Boolean - Optional, whether to follow http redirects, default is true.
-    "validate_ssl": true // Boolean - Optional, whether to validate SSL certificate of the target URL, default is true.
+    "validate_ssl": true, // Boolean - Optional, whether to validate SSL certificate of the target URL, default is true.
+    "send_dd_logs": true // Boolean - Optional, whether to send logs to Datadog, default is true.
 }

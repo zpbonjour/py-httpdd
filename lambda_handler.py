@@ -91,6 +91,8 @@ def lambda_handler(event, context) -> dict | bool:
             - 'http_timeout' (int | str, optional): Request timeout in seconds.
               Defaults to 10.
             - 'type'/'subType' (str, optional): Used for warmup detection.
+            - 'send_dd_logs' (bool, optional): If False, skips sending logs to Datadog.
+              Defaults to True.
 
         context (object): The AWS Lambda context object, providing runtime info
             like ARN and request ID for logging.
@@ -124,6 +126,7 @@ def lambda_handler(event, context) -> dict | bool:
     validate_ssl = event.get('validate_ssl', True) # Validate SSL certificates or not, default to True
     allow_redirects = event.get('allow_redirects', True) # Allow redirects or not, default to True
     http_timeout = event.get('http_timeout', 10) # string or int, Timeout for the HTTP request in seconds, default to 10 seconds
+    send_dd_logs = event.get('send_dd_logs', True) # Whether to send logs to Datadog or not, default to True
 
     log_payload = {
         "http": {
